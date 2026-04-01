@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enebla & MenYeqrab | Premium Food</title>
+    <style>
+        /* DESIGN SECTION */
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #f4f7f6; color: #333; text-align: center; }
+        header { background: #2c3e50; color: white; padding: 50px 20px; }
+        
+        .container { display: flex; justify-content: center; gap: 30px; padding: 50px 20px; flex-wrap: wrap; }
+        
+        .card { 
+            background: white; padding: 30px; border-radius: 15px; width: 300px; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-top: 8px solid #27ae60; 
+        }
+        .card.menyeqrab { border-top-color: #e67e22; }
+        
+        button { 
+            background: #2c3e50; color: white; border: none; padding: 12px 25px; 
+            border-radius: 25px; cursor: pointer; font-weight: bold; margin-top: 20px; 
+        }
+        button:hover { background: #a822e6; }
+
+        /* FORM SECTION (Hidden until button is clicked) */
+        #contact-form { 
+            display: none; position: fixed; top: 50%; left: 50%; 
+            transform: translate(-50%, -50%); background: white; 
+            padding: 30px; border-radius: 15px; box-shadow: 0 0 50px rgba(0,0,0,0.5); z-index: 100;
+        }
+        input, textarea { width: 90%; margin: 10px 0; padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
+        .close-btn { background: #ccc; margin-left: 10px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="logo.png" style="height: 80px; margin-bottom: 10px;">
+        <h1>Premium Culinary Services</h1>
+        <p>Enebla Catering & MenYeqrab Foods</p>
+    </header>
+
+   <div class="container">
+    <div class="card enebla">
+        <img src="catering.jpg" style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 15px;" alt="Enebla Catering">
+        <h2>Enebla Catering</h2>
+        <p>Themed, healthy food experiences for children's celebrations.</p>
+        <button onclick="openForm('Enebla Catering')">Book an Event</button>
+    </div>
+
+    <div class="card menyeqrab">
+        <img src="food.jpg" style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 15px;" alt="MenYeqrab Foods">
+        <h2>MenYeqrab Foods</h2>
+        <p>Fresh raw ingredients and meal kits delivered home.</p>
+        <button onclick="openForm('MenYeqrab Foods')">Shop Meal Kits</button>
+    </div>
+</div>
+
+    <div id="contact-form" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:white; padding:30px; border-radius:15px; box-shadow:0 0 50px rgba(0,0,0,0.5); z-index:100; width: 300px;">
+        <h3 id="form-title" style="margin-top:0;">Inquiry</h3>
+        
+        <form action="https://formspree.io/f/xqeglweb" method="POST">
+            <input type="hidden" name="Service_Type" id="form-brand">
+            
+            <input type="text" name="Name" placeholder="Your Name" style="width:90%; padding:10px; margin-bottom:10px; border:1px solid #ddd; border-radius:5px;" required>
+            <input type="text" name="Phone" placeholder="Phone Number" style="width:90%; padding:10px; margin-bottom:10px; border:1px solid #ddd; border-radius:5px;" required>
+            <textarea name="Message" placeholder="How can we help?" style="width:90%; padding:10px; margin-bottom:10px; border:1px solid #ddd; border-radius:5px; height:80px;"></textarea>
+            
+            <button type="submit" style="background:#27ae60; color:white; border:none; padding:10px 20px; border-radius:5px; cursor:pointer; width:100%;">Send Inquiry</button>
+            <button type="button" onclick="closeForm()" style="background:#ccc; color:white; border:none; padding:10px 20px; border-radius:5px; cursor:pointer; width:100%; margin-top:5px;">Close</button>
+        </form>
+    </div>
+
+    <script>
+        /* BRAIN SECTION */
+        function openForm(title) {
+            document.getElementById('contact-form').style.display = 'block';
+            document.getElementById('form-title').innerText = "Inquiry for " + title;
+        }
+
+        function closeForm() {
+            document.getElementById('contact-form').style.display = 'none';
+        }
+
+        function submitOrder() {
+            const name = document.getElementById('userName').value;
+            if(name === "") {
+                alert("Please enter your name!");
+            } else {
+                alert("Thank you, " + name + "! Your request has been sent. We will contact you shortly.");
+                closeForm();
+            }
+        }
+    </script>
+
+</body>
+</html>
