@@ -3,26 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Enebla | Immersive Catering Menu</title>
+    <title>Enebla | Catering Packages</title>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #f4f7f6; color: #333; text-align: center; padding: 50px 20px; }
-        .menu-container { background: white; max-width: 600px; margin: auto; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 10px solid #27ae60; }
-        h1 { color: #2c3e50; }
-        .product-item { display: flex; justify-content: space-between; padding: 20px 0; border-bottom: 1px solid #eee; font-size: 1.1rem; }
-        .price { font-weight: bold; color: #27ae60; }
-        .back-btn { display: inline-block; margin-top: 30px; text-decoration: none; color: #777; font-weight: bold; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #f4f7f6; color: #333; text-align: center; padding: 40px 20px; }
+        
+        .plan-header { margin-bottom: 40px; }
+        .plan-header h1 { font-size: 2.2rem; color: #2c3e50; }
+        .highlight { color: #27ae60; font-weight: bold; } /* Enebla Green */
+
+        .cards-container { 
+            display: flex; 
+            justify-content: center; 
+            gap: 25px; 
+            max-width: 1100px; 
+            margin: 0 auto; 
+            flex-wrap: wrap;
+        }
+
+        .card { 
+            background: white; border-radius: 20px; padding: 35px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08); 
+            display: flex; flex-direction: column; text-align: left;
+            width: 320px;
+            border-top: 8px solid #27ae60;
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+        .card:hover { transform: translateY(-10px); }
+
+        /* Featured Card Styling (Immersive Pack) */
+        .card.featured { 
+            border: 4px solid #27ae60; 
+            transform: scale(1.05);
+            z-index: 10;
+        }
+        .card.featured:hover { transform: scale(1.05) translateY(-10px); }
+        
+        .badge {
+            position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
+            background: #27ae60; color: white; padding: 5px 15px; 
+            border-radius: 20px; font-size: 0.8rem; font-weight: bold; text-transform: uppercase;
+        }
+
+        .card h2 { font-size: 1.2rem; color: #2c3e50; margin-top: 0; text-transform: uppercase; }
+        .price { font-size: 1.8rem; font-weight: bold; margin: 15px 0; color: #333; }
+        .price small { font-size: 0.8rem; color: #777; }
+
+        ul { list-style: none; padding: 0; margin: 0; flex-grow: 1; }
+        li { padding: 12px 0; border-bottom: 1px solid #eee; font-size: 0.95rem; color: #555; display: flex; align-items: flex-start; }
+        li::before { content: "✨"; margin-right: 10px; }
+
+        .btn { 
+            background: #2c3e50; color: white; border: none; padding: 15px; 
+            border-radius: 30px; cursor: pointer; font-weight: bold; 
+            margin-top: 25px; width: 100%; transition: 0.3s;
+        }
+        .btn:hover { background: #27ae60; }
+
+        .back-home { margin-top: 50px; display: inline-block; text-decoration: none; color: #777; font-weight: bold; }
     </style>
 </head>
 <body>
-    <div class="menu-container">
-        <h1>Enebla Catering Offerings</h1>
-        <p>Immersive & Healthy Experiences</p>
-        
-        <div class="product-item"><span>Full Theme Setup & Catering</span> <span class="price">$450+</span></div>
-        <div class="product-item"><span>Kids Healthy Bento Box (Min. 10)</span> <span class="price">$18/ea</span></div>
-        <div class="product-item"><span>Custom Celebration Cake</span> <span class="price">$120</span></div>
-        
-        <a href="index.html" class="back-btn">← Back to Home</a>
+
+    <div class="plan-header">
+        <h1>Enebla <span class="highlight">Catering Packages</span></h1>
+        <p>Creating magical, healthy celebrations for your children.</p>
     </div>
+
+    <div class="cards-container">
+        <div class="card">
+            <h2>Classic Pack</h2>
+            <div class="price">500 <small>ETB/person</small></div>
+            <ul>
+                <li>Healthy Themed Catering</li>
+                <li>Basic Table Decor</li>
+                <li>Professional Setup & Cleanup</li>
+            </ul>
+            <button class="btn">Select Classic</button>
+        </div>
+
+        <div class="card featured">
+            <div class="badge">Most Loved</div>
+            <h2>Immersive Pack</h2>
+            <div class="price">750 <small>ETB/person</small></div>
+            <ul>
+                <li>Advanced Immersive Theme</li>
+                <li>Interactive Food Stations</li>
+                <li>Themed Party Games</li>
+                <li>Everything in Classic Pack</li>
+            </ul>
+            <button class="btn" style="background:#27ae60;">Select Immersive</button>
+        </div>
+
+        <div class="card">
+            <h2>Elite Pack</h2>
+            <div class="price">1,000 <small>ETB/person</small></div>
+            <ul>
+                <li>Dedicated 'Party Concierge'</li>
+                <li>Customized Gift Bags</li>
+                <li>Premium Photography (1 Hour)</li>
+                <li>Everything in Immersive Pack</li>
+            </ul>
+            <button class="btn">Select Elite</button>
+        </div>
+    </div>
+
+    <a href="index.html" class="back-home">← Back to Home</a>
+
 </body>
 </html>
